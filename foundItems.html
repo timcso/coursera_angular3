@@ -1,0 +1,8 @@
+<div ng-show="nid_ctrl.stat && nid_ctrl.items.length == 0" class='not-found'> Nothing found!</div>
+<ol>
+  <li ng-repeat="item in nid_ctrl.items" class="list-group-item">
+    {{ item.short_name }}, {{ item.name }} 
+    <button ng-click="nid_ctrl.onRemove($index);">Don't want this one!</button> <br/>
+    {{ item.description }}
+  </li>
+</ol>
