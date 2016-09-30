@@ -24,6 +24,7 @@
 
     <!-- found-items should be implemented as a component  found-items="...." on-remove="...." -->
     <found-items items="nid_ctrl.items" on-remove="nid_ctrl.onRemove(index)"></found-items>
+    <div ng-if="nid_ctrl.items.length == 0 && nid_ctrl.b" class='not-found'> Nothing found!</div>
 
    </div>
 

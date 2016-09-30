@@ -4,7 +4,7 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
 .directive('foundItems', FoundItemsDirective);
 
 function FoundItemsDirective() {
@@ -40,19 +40,13 @@ function NarrowItDownController(MenuSearchService) {
 
   nid_ctrl.items = [];
 
-  nid_ctrl.stat = null;
-  console.log(nid_ctrl.stat);
 
   nid_ctrl.narrowItDown = function (searchTerm) {
     var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
-    console.log(searchTerm);
 
     promise.then(function (response) {
       nid_ctrl.items = response;
-      nid_ctrl.stat = 'done';
-      console.log(nid_ctrl.stat);
-      console.log(nid_ctrl.items);
-      console.log(nid_ctrl.items.length);
+      nid_ctrl.b = true;
     })
     .catch(function (error) {
       console.log("Something went terribly wrong.");
